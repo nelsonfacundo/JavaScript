@@ -114,10 +114,10 @@ function llenarSelectYear(){
 //Funcion que filta en base a la busqueda
 function filtrarAuto(){
     //Filtrar anio + marca 
-    const resultado = autos.filter( filtarMarca ).filter(filtrarYear).filter(filtrarMinimo).filter(filtrarMaximo).filter(filtrarPuertas).filter(filtrarTransmision).filter(filtarColor);
+    const resultado = autos.filter(filtarMarca).filter(filtrarYear).filter(filtrarMinimo).filter(filtrarMaximo).filter(filtrarPuertas).filter(filtrarTransmision).filter(filtrarColor);
 
     console.log(resultado)
-   if(resultado.length ){
+   if(resultado.length > 0 ){
         mostrarAutos(resultado); 
    }else{
         noResultado();
@@ -169,13 +169,13 @@ function filtrarPuertas(auto){
 
 function filtrarTransmision(auto){
     const { transmision } = datosBusqueda
-    if( maximo ){
+    if( transmision ){
         return auto.transmision === transmision
     }
     return auto;
 }
 
-function filtarColor(auto){
+function filtrarColor(auto){
     const { color } = datosBusqueda
     if( color ){
         return auto.color === color
